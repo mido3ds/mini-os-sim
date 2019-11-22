@@ -2,6 +2,9 @@
 
 #include "Channel.hpp"
 
+#include <iostream>
+using namespace std;
+
 /*
  * starting point of disk process
  * @kernelPID: pid of kernel

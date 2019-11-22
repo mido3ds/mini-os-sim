@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#include <iostream>
+
 /*
  * starting point of kernel, given pid of disk and the processes
  * @diskPID: pid of disk
@@ -13,7 +15,6 @@ using namespace std;
  * 
  * @return exit code of kernel
  */
-int kernel_main(pid_t diskPID, Channel diskChannel, 
-    vector<pair<pid_t, Channel>> procs) {
+int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>> procs) {
     return 0;
 }

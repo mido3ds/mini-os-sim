@@ -6,25 +6,26 @@
 
 #include "Channel.hpp"
 
-#define MAX_TRIALS 300
 #define MAX_CHARS 64
 #define PERMISSIONS 0666
 
 static int createMQ() {
     int msgid;
-    int trials = 0;
-
-    while ((msgid = msgget(rand(), PERMISSIONS | IPC_EXCL | IPC_CREAT)) == -1) {
-        if (++trials >= MAX_TRIALS) {
-            perror("failed tried to create msgq more than MAX_TRIALS");
-            exit(1);
-        }    
-    }
-
+    while ((msgid = msgget(rand(), PERMISSIONS | IPC_EXCL | IPC_CREAT)) == -1) { }
     return msgid;
 }
 
-Channel::Channel() :upID(createMQ()), downID(createMQ()), isopen(true) { }
+Channel::Channel() {}
+
+Channel Channel::open() {
+    Channel chnl;
+
+    chnl.upID = createMQ();
+    chnl.downID = createMQ();
+    chnl.isopen = true;
+
+    return chnl;
+}
 
 struct Buffer {
     long type;
@@ -32,6 +33,7 @@ struct Buffer {
 };
 
 bool Channel::send(string msg, long type) {
+    if (!isopen) return false;
     if (msg.size() >= MAX_CHARS) return false;
 
     Buffer buf;
@@ -41,12 +43,13 @@ bool Channel::send(string msg, long type) {
     return msgsnd(upID, &buf, sizeof buf, 0) != -1;
 }
 
-bool Channel::recv(string& msg, long& type) {
+bool Channel::recv(string& msg, long type) {
+    if (!isopen) return false;
+
     Buffer buf;
 
-    if (msgrcv(downID, &buf, sizeof buf, 1, 0) != -1) {
-        msg.assign(buf.text);
-        type = buf.type;
+    if (msgrcv(downID, &buf, sizeof buf, type, 0) != -1) {
+        msg = string(buf.text);
         return true;
     } 
 

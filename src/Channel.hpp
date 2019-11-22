@@ -6,24 +6,16 @@ using std::string;
 class Channel {
 private:
     int upID, downID;
-    bool isopen;
+    bool isopen = false;
 
-public:
     Channel();
 
-    /*
-     * send message `msg` with mtype `type`
-     * 
-     * @return: true if success, otherwise false
-     */
-    bool send(string msg, long type);
+public:
 
     /*
-     * receive into `msg` and mtype into `type`
-     * 
-     * @return: true if success, otherwise false
+     * return new open Channel
      */
-    bool recv(string& msg, long& type);
+    static Channel open();
 
     /*
      * close both up/down streams
@@ -31,6 +23,23 @@ public:
      * @return: true if success, otherwise false
      */
     bool close();
+
+    /*
+     * send message `msg` of `type`
+     * type >0
+     * 
+     * @return: true if success, otherwise false
+     */
+    bool send(string msg, long type);
+
+    /*
+     * receive into `msg` from `type`
+     * type >0 
+     * if type == 0 -> recv the first message is read regardless of its type
+     * 
+     * @return: true if success, otherwise false
+     */
+    bool recv(string& msg, long type);
 
     /*
      * up stream is down stream and vice versa

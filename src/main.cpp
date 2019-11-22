@@ -29,15 +29,15 @@ int init(int n) {
 
     if (n > 0) {
         // init process #n
-        pid_t pid = fork();
 
-        if (pid == -1) {
+        auto chnl = Channel::open();
+
+        pid_t pid;
+        if ((pid = fork()) == -1) {
             perror("Can't fork process!");
             for (auto ch: procs) { kill(ch.first, SIGKILL); }
             return 1;
         } 
-
-        auto chnl = Channel();
 
         if (pid == 0) {
             int exitCode = process_main(getppid(), n-1, chnl);
@@ -46,21 +46,21 @@ int init(int n) {
             cerr << RED_CLR ">> " RESET_CLR << "Process #" << n-1 << " returned " << exitCode << endl;
             return exitCode;
         }
-
+        
         procs.push_back(make_pair(pid, chnl.flip()));
         return init(n-1);
     } else {
         // init disk and kernel
-        pid_t pid = fork();
-
-        if (pid == -1) {
+ 
+        auto chnl = Channel::open();
+        
+        pid_t pid;
+        if ((pid = fork()) == -1) {
             perror("Can't fork disk process!");
             for (auto ch: procs) { kill(ch.first, SIGKILL); }
             return 1;
         }
 
-        auto chnl = Channel();
-        
         if (pid == 0) {
             int exitCode = disk_main(getppid(), chnl);
             chnl.close();
