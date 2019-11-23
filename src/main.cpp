@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <sstream>
 #include <algorithm> // reverse
 
 #include <signal.h> // pid_t
@@ -18,13 +19,19 @@ using namespace std;
 
 int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>> procs);
 int disk_main(pid_t kernelPID, Channel kernelChannel);
-int process_main(pid_t kernelPID, int processNum, Channel kernelChannel);
+int process_main(pid_t kernelPID, int processNum, Channel kernelChannel, string inputFilePath);
+
+string getInputTextPath(string inputDir, int pNum) {
+    ostringstream os;
+    os << inputDir << "/" << pNum << ".txt";
+    return os.str();
+}
 
 /*
  * create n process, disk process and kernel
  * prints and returns their exit codes
  */
-int init(int n) {
+int init(int n, string inputDir) {
     static vector<pair<pid_t, Channel>> procs;
 
     if (n > 0) {
@@ -40,7 +47,7 @@ int init(int n) {
         } 
 
         if (pid == 0) {
-            int exitCode = process_main(getppid(), n-1, chnl);
+            int exitCode = process_main(getppid(), n-1, chnl, getInputTextPath(inputDir, n-1));
             chnl.close();
 
             cerr << RED_CLR ">> " RESET_CLR << "Process #" << n-1 << " returned " << exitCode << endl;
@@ -48,7 +55,7 @@ int init(int n) {
         }
         
         procs.push_back(make_pair(pid, chnl.flip()));
-        return init(n-1);
+        return init(n-1, inputDir);
     } else {
         // init disk and kernel
  
@@ -87,8 +94,8 @@ int init(int n) {
 }
 
 int main(int argc, char const *argv[]) {
-    if (argc != 2) {
-        cerr << "Usage: " << argv[0] << " numOfProcesses\n";
+    if (argc != 3) {
+        cerr << "Usage: " << argv[0] << " numOfProcesses inputFilesDir\n";
         return 1;
     }
 
@@ -107,5 +114,5 @@ int main(int argc, char const *argv[]) {
         return 1;
     }
 
-    return init(n);
+    return init(n, argv[2]);
 }

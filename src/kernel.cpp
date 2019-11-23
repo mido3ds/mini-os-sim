@@ -9,6 +9,7 @@ using namespace std;
 
 /*
  * starting point of kernel, given pid of disk and the processes
+ * 
  * @diskPID: pid of disk
  * @diskChannel: up/down streams to talk to disk
  * @procs: pairs of proc pid and its up/down channel
