@@ -13,5 +13,6 @@ using namespace std;
  * @return exit code of disk
  */
 int disk_main(pid_t kernelPID, Channel kernelChannel) {
+    // TODO
     return 0;
 }

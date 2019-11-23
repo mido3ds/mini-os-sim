@@ -48,7 +48,7 @@ bool Channel::recv(string& msg, long type) {
 
     Buffer buf;
 
-    if (msgrcv(downID, &buf, sizeof buf, type, 0) != -1) {
+    if (msgrcv(downID, &buf, sizeof buf, type, ~IPC_NOWAIT) != -1) {
         msg = string(buf.text);
         return true;
     } 

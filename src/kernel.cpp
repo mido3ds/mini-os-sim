@@ -16,5 +16,6 @@ using namespace std;
  * @return exit code of kernel
  */
 int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>> procs) {
+    // TODO
     return 0;
 }
