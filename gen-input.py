@@ -19,4 +19,4 @@ for file_num in range(n):
             delt = f'{random.randint(1, 100)} DEL {random.randint(0, 10)}'
             add = f'{random.randint(1, 100)} ADD {rand_str(random.randint(1, 40))}'
 
-            print(f' {random.choice([delt, add])}', file=f)
+            print(f'{random.choice([delt, add])}', file=f)
