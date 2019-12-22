@@ -2,7 +2,6 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm> // reverse
-#include <sys/wait.h> // wait
 #include <signal.h> // pid_t
 #include <unistd.h> // fork, getpid, getppid
 
@@ -27,18 +26,11 @@ string getInputTextPath(string inputDir, int pNum) {
     return os.str();
 }
 
-void sigchld_handler(int signum) {
-    int pid, stat_loc;
-    pid = wait(&stat_loc);
-    signal(SIGCHLD, sigchld_handler);   
-}
-
 /*
  * create n process, disk process and kernel
  * prints and returns their exit codes
  */
 int init(int n, string inputDir) {
-    signal(SIGCHLD, sigchld_handler); // set SIGCHLD handler
     static vector<pair<pid_t, Channel>> procs;
 
     if (n > 0) {

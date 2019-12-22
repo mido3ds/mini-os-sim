@@ -1,4 +1,5 @@
 #include <signal.h> // pid_t
+#include <sys/wait.h> // wait
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -8,6 +9,13 @@ using namespace std;
 
 #include <iostream>
 #include <chrono>
+
+/* Definiton for SIGCHLD handler */
+void sigchld_handler(int signum) {
+    int pid, stat_loc;
+    pid = wait(&stat_loc);
+    signal(SIGCHLD, sigchld_handler);   
+}
 
 /*
  * starting point of kernel, given pid of disk and the processes
@@ -19,9 +27,12 @@ using namespace std;
  * @return exit code of kernel
  */
 int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>> procs) {
+    // set SIGCHLD handler of kernel
+    signal(SIGCHLD, sigchld_handler);
+    
     // initialize some variables
-    //long long int KERNEL_CLK = 0;
-    //chrono::time_point<chrono::system_clock> start = chrono::system_clock::now(); 
+    long long int KERNEL_CLK = 0;
+    chrono::time_point<chrono::system_clock> start = chrono::system_clock::now(); 
     string proc_msg;
     long proc_msg_type = 0;
     string disk_msg;
@@ -34,11 +45,6 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
     // loop over all processes until no more left
     while (procs.size() != 0)
     {
-        // kill(diskPID, SIGUSR2);
-        // for (auto &proc: procs)
-        // {
-        //     kill(proc.first, SIGUSR2);
-        // }
         // get current process
         pair<pid_t, Channel> cur_proc = procs[procs.size()-1];
         procs.pop_back();
@@ -103,7 +109,12 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         {
             procs.insert(procs.begin(), cur_proc);
         }
-        //sleep(1);
+        kill(diskPID, SIGUSR2);
+        for (auto &proc: procs)
+        {
+            kill(proc.first, SIGUSR2);
+        }
+        sleep(1);
     }
     
     event_log.close();

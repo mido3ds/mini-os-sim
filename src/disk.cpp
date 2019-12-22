@@ -48,7 +48,7 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 	for (int i = 0; i < 10; i++)
 		disk_messages[i] = "empty";
 	string message;
-	long msg_type;
+	long msg_type = 0;
 	// loop to get all requests by kernel
 	while (true)
 	{
@@ -61,8 +61,8 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			if (msg_type == 4)
 			{	
 				// add operation
-				for (int i = 0; i < 3; i++)
-					sleep(1);
+				for (int i = 0; i < 3e6; i++)
+					usleep(1);
 				int k = 0;
 				while (disk_messages[k] != "empty" && k<= MAX_Count)
 					k++;
@@ -74,7 +74,8 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			else 
 			{
 				// delete operation
-				sleep(1);
+				for (int i = 0; i < 1e6; i++)
+					usleep(1);
 				if (disk_messages[stoi(message)] != "empty")
 				{
 					disk_messages[stoi(message)] = "empty";
