@@ -40,7 +40,7 @@ bool Channel::send(string msg, long type) {
     buf.type = type;
     strcpy(buf.text, msg.c_str());
 
-    return msgsnd(upID, &buf, sizeof buf, 0) != -1;
+    return msgsnd(upID, &buf, sizeof buf, IPC_NOWAIT) != -1;
 }
 
 bool Channel::recv(string& msg, long type) {

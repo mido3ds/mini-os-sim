@@ -1,9 +1,9 @@
-#include <vector>
 #include <signal.h> // pid_t
 #include <fstream>
-
+#include <vector>
+#include <iostream>
 #include "Channel.hpp"
-
+#include <unistd.h>
 using namespace std;
 
 #include <iostream>
@@ -61,12 +61,10 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         else if (proc_msg[0] == 'D' && free_slots == 10) // invalid delete request, no occupied slot
         {
             event_log << "error occured, no slots to delete!" << endl;
-            cur_proc.second.send(to_string(3), 2);
         }
         else if (proc_msg[0] == 'A' && free_slots == 0) // invalid add request, no free slots
         {
             event_log << "error occured, no free slots!" << endl;
-            cur_proc.second.send(to_string(2), 2);
         }
         else // send request to disk, if valid
         {
@@ -74,38 +72,57 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
             if (proc_msg[0] == 'A') // add request
             {
                 diskChannel.send(proc_msg, 3);
+                for (int i=0; i<3; i++)
+                {
+                    sleep(1);
+                    kill(diskPID, SIGUSR2);
+                    kill(cur_proc.first, SIGUSR2);
+                    for (auto& proc: procs)
+                    {
+                        kill(proc.first, SIGUSR2);
+                    }
+                }
                 event_log << "added successfully, process freed" << endl;
-                cur_proc.second.send(to_string(0), 2);
             }
             else if (proc_msg[0] == 'D') // delete request
             {
                 if (int(proc_msg[1]-'0') > 9) // slot number out of range
                 {
                     event_log << "invalid request, process freed" << endl;
-                    cur_proc.second.send("invalid call", 5);
                 }
                 else
                 {
-                    diskChannel.send(proc_msg, 3);
+                    diskChannel.send(proc_msg, 2);
+                    sleep(1);
+                    kill(diskPID, SIGUSR2);
+                    kill(cur_proc.first, SIGUSR2);
+                    for (auto& proc: procs)
+                    {
+                        kill(proc.first, SIGUSR2);
+                    }
                     event_log << "deleted successfully, process freed" << endl;
-                    cur_proc.second.send(to_string(1), 2);
                 }               
             } 
             else // unknown request
             {
                 event_log << "invalid request, process freed" << endl;
-                cur_proc.second.send("invalid call", 5);
             }
         }
     }
 
-    procs.insert(procs.begin(), cur_proc);
-
+    if (0 == kill(cur_proc.first, 0)) // check if process still exists
+    {
+        procs.insert(procs.begin(), cur_proc);
+    }
     event_log << endl;
     event_log << endl;
     event_log.close();
 
-    kernel_main(diskPID, diskChannel, procs);
+    if (procs.size() != 0) // check if no more processes, kill disk and exit
+    {
+        kernel_main(diskPID, diskChannel, procs);
+    }
 
+    kill(diskPID, SIGKILL);
     return 0;
 }

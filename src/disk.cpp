@@ -8,34 +8,28 @@ using namespace std;
 
 
 //Global Variables
-long long int CLK = 0;
+long long int DISK_CLK = 0;
 int msg_count = 0;
 const int MAX_Count = 10;
-Channel ch;
+Channel *ch;
 vector<string> disk_messages;
-//Definiton for SIGUSR1
-void sigusr1_handler(int signum)
+
+/* Definiton for Disk SIGUSR1 */
+void sigusr1_disk_handler(int signum)
 {
-	//For more confirmation
-	signal(SIGUSR1, sigusr1_handler);
-	//Needs to be defined
-	long msg_type = 7;
-	//Sends the Kernel a MSG with your Count
-	if (ch.send(to_string(msg_count), msg_type) == -1)
+	long msg_type = 4; // message type 4 for Disk->Kernel 
+	// send the Kernel a message with disk Count
+	if (ch->send(to_string(10-msg_count), msg_type) == -1)
 		cout << "Error in upstreaming the number of messages in Disk!" << endl;
-	return;
+	signal(SIGUSR1, sigusr1_disk_handler);
 }
 
-//Definiton for SIGUSR2
-void sigusr2_handler(int signum)
+/* Definiton for Disk SIGUSR2 */
+void sigusr2_disk_handler(int signum)
 {
-	//For more confirmation
-	signal(SIGUSR2, sigusr2_handler);
-	CLK++;
-	return;
+	DISK_CLK++;
+	signal(SIGUSR2, sigusr2_disk_handler);
 }
-
-
 
 /*
 * starting point of disk process
@@ -46,55 +40,47 @@ void sigusr2_handler(int signum)
 * @return exit code of disk
 */
 int disk_main(pid_t kernelPID, Channel kernelChannel) {
-	// TODO
-	ch = kernelChannel;
-	signal(SIGUSR2, sigusr2_handler);
-	signal(SIGUSR1, sigusr1_handler);
+	// some definitions
+	ch = &kernelChannel;
+	signal(SIGUSR2, sigusr2_disk_handler);
+	signal(SIGUSR1, sigusr1_disk_handler);
+	// initialize disk slots
 	for (int i = 0; i < 10; i++)
 		disk_messages[i] = "empty";
-	
-	bool termination = false;
 	string message;
 	long msg_type;
-	//0 for del, 1 for add
-	int option = 0;
-	int time = 0;
-	while (!termination)
+	// loop to get all requests by kernel
+	while (true)
 	{
-		//In each loop, I'll check the Msg Q for new msgs
-		while (ch.recv(message, msg_type))
+		//In each loop, check the queue for new messages
+		while (ch->recv(message, msg_type))
 		{
-			//Decide your option based on message type
-			option = 1;
-
-
-			if (option == 1)
+			// get message content
+			message = message.substr(2);
+			// decide option based on message type
+			if (msg_type == 3)
 			{	
-				if (msg_count == MAX_Count)
-				{
-					cout << "Problem occured while adding the message, No space allowed" << endl;
-				}
-				time = 3e6;
-				for (int i = 0; i < time; i++)
+				// add operation
+				for (int i = 0; i < 3; i++)
 					sleep(1);
 				int k = 0;
 				while (disk_messages[k] != "empty" && k<= MAX_Count)
 					k++;
 				k++;
-				//Added on the first empty slot
+				// add on the first empty slot
 				disk_messages[k] = message;
 				msg_count++;
 			}
 			else 
 			{
-				//Delete operation
-				time = 1e6;
-				for (int i = 0; i < time; i++)
-					sleep(1);
-				disk_messages[stoi(message)] = "empty";
-				msg_count--;
+				// delete operation
+				sleep(1);
+				if (disk_messages[stoi(message)] != "empty")
+				{
+					disk_messages[stoi(message)] = "empty";
+					msg_count--;
+				}
 			}
-
 		}
 	}
 
