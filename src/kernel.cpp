@@ -29,10 +29,13 @@ void sigchld_handler(int signum) {
 int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>> procs) {
     // set SIGCHLD handler of kernel
     signal(SIGCHLD, sigchld_handler);
-    
+
+    // wait for all processes and disk to startup
+    sleep(3); 
+
     // initialize some variables
-    long long int KERNEL_CLK = 0;
-    chrono::time_point<chrono::system_clock> start = chrono::system_clock::now(); 
+    //long long int KERNEL_CLK = 0;
+    //chrono::time_point<chrono::system_clock> start = chrono::system_clock::now(); 
     string proc_msg;
     long proc_msg_type = 0;
     string disk_msg;
@@ -120,6 +123,7 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
     event_log.close();
 
     kill(diskPID, SIGKILL); // kill disk process
+    pause(); // wait for disk SIGCHLD
 
     return 0;
 }

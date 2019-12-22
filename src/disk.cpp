@@ -12,7 +12,7 @@ long long int DISK_CLK = 0;
 int msg_count = 0;
 const int MAX_Count = 10;
 Channel *ch;
-vector<string> disk_messages;
+vector<string> disk_messages {"empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"};
 
 /* Definiton for Disk SIGUSR1 */
 void sigusr1_disk_handler(int signum)
@@ -44,9 +44,6 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 	ch = &kernelChannel;
 	signal(SIGUSR2, sigusr2_disk_handler);
 	signal(SIGUSR1, sigusr1_disk_handler);
-	// initialize disk slots
-	for (int i = 0; i < 10; i++)
-		disk_messages[i] = "empty";
 	string message;
 	long msg_type = 0;
 	// loop to get all requests by kernel
@@ -56,9 +53,10 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 		if (ch->recv(message, msg_type))
 		{
 			// get message content
+			string msg_op =  message.substr(0,1);
 			message = message.substr(2);
 			// decide option based on message type
-			if (msg_type == 4)
+			if (msg_op == "A")
 			{	
 				// add operation
 				for (int i = 0; i < 3e6; i++)

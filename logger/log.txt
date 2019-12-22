@@ -1,56 +1,78 @@
 #SYS_CALL:
 
-process #3856 requested: A dalozvcrwnrovraglcclgbnybknsoa
+process #9138 requested: A dalozvcrwnrovraglcclgbnybknsoa
 disk failure, no count returned!
 #SYS_CALL:
 
-process #3856 requested: A yvfqfcrrygfhrylwtajc
-disk failure, no count returned!
+process #9138 requested: A yvfqfcrrygfhrylwtajc
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: D 5
-disk failure, no count returned!
+process #9138 requested: D 5
+10 slots available!
+error occured, no slots to delete!
 #SYS_CALL:
 
-process #3856 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
-disk failure, no count returned!
+process #9138 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: A itqtndcb
-disk failure, no count returned!
+process #9138 requested: A itqtndcb
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: D 9
-disk failure, no count returned!
+process #9138 requested: D 9
+10 slots available!
+error occured, no slots to delete!
 #SYS_CALL:
 
-process #3856 requested: A wazjcntrc
-disk failure, no count returned!
+process #9138 requested: A wazjcntrc
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: A yjiqjjxxmzzeqiupjbgvwc
-disk failure, no count returned!
+process #9138 requested: A yjiqjjxxmzzeqiupjbgvwc
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: D 5
-disk failure, no count returned!
+process #9138 requested: D 5
+10 slots available!
+error occured, no slots to delete!
 #SYS_CALL:
 
-process #3856 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
-disk failure, no count returned!
+process #9138 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: D 5
-disk failure, no count returned!
+process #9138 requested: D 5
+10 slots available!
+error occured, no slots to delete!
 #SYS_CALL:
 
-process #3856 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
-disk failure, no count returned!
+process #9138 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: A sjdptztsxgbyclqdcts
-disk failure, no count returned!
+process #9138 requested: A sjdptztsxgbyclqdcts
+10 slots available!
+request sent to disk
+added successfully, process freed
 #SYS_CALL:
 
-process #3856 requested: A ivmbqokislklrxawzbvcpudhbrww
-disk failure, no count returned!
+process #9138 requested: A ivmbqokislklrxawzbvcpudhbrww
+10 slots available!
+request sent to disk
+added successfully, process freed
