@@ -52,8 +52,8 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 	// loop to get all requests by kernel
 	while (true)
 	{
-		//In each loop, check the queue for new messages
-		while (ch->recv(message, msg_type))
+		// check the queue for new messages
+		if (ch->recv(message, msg_type))
 		{
 			// get message content
 			message = message.substr(2);
