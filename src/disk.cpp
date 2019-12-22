@@ -17,7 +17,7 @@ vector<string> disk_messages;
 /* Definiton for Disk SIGUSR1 */
 void sigusr1_disk_handler(int signum)
 {
-	long msg_type = 4; // message type 4 for Disk->Kernel 
+	long msg_type = 5; // message type 4 for Disk->Kernel 
 	// send the Kernel a message with disk Count
 	if (ch->send(to_string(10-msg_count), msg_type) == -1)
 		cout << "Error in upstreaming the number of messages in Disk!" << endl;
@@ -58,7 +58,7 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			// get message content
 			message = message.substr(2);
 			// decide option based on message type
-			if (msg_type == 3)
+			if (msg_type == 4)
 			{	
 				// add operation
 				for (int i = 0; i < 3; i++)

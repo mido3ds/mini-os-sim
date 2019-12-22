@@ -27,6 +27,9 @@ void sigusr2_prc_handler(int signum)
  * @return exit code of the process
  */
 int process_main(pid_t kernelPID, int processNum, Channel kernelChannel, string inputFilePath) {
+   // set the siguser2 handler
+   signal(SIGUSR2, sigusr2_prc_handler);
+
    // read data from the input file and save it in data vector
    ifstream file(inputFilePath);
 
@@ -62,9 +65,6 @@ int process_main(pid_t kernelPID, int processNum, Channel kernelChannel, string 
       }
    }
 
-   // set the siguser2 handler
-   signal(SIGUSR2, sigusr2_prc_handler);
-
    string message;
 	long msg_type;
 
@@ -72,9 +72,9 @@ int process_main(pid_t kernelPID, int processNum, Channel kernelChannel, string 
    while (!requests.empty()) { 
       if(requests.find(PRC_CLK) != requests.end()) { // found a request to be sent at the current clock cycle
          if(requests[PRC_CLK][0] == 'D') { // delete operation
-            msg_type = 0;
-         } else if (requests[PRC_CLK][2] == 'A') { // add operation
             msg_type = 1;
+         } else if (requests[PRC_CLK][0] == 'A') { // add operation
+            msg_type = 2;
          } else {
             cout << " invalid action " << endl;
             return -1;       // error in process creation
