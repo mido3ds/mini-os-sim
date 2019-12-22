@@ -1,0 +1,116 @@
+#SYS_CALL:
+
+process #6777 requested: A uzecsuyjwviyppradavkmv
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 6
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6778 requested: A vi
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A ctliw
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A sy
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A h
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A fjhpbtrgjqjpjjsdicpkxhygcobnmskp
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 2
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A emcrzjhw
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A phlsxmijlfokvwjcrpse
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A bpacrrzbjgnxjczjtzkqpbhrntrac
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 5
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A uxrfhyidqqndnjfafqlweoprqsglz
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6778 requested: A qbihokseyqgcuukmgttqtfkvxxwyxvqhsr
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A nzxuwmhjqgizyiltdhj
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 10
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6778 requested: A ouduhbbuqjbccgnrmhcwqxo
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A wjbdjddggduajhtyadzmblsjskvsjxiwu
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 2
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A oxkoomaoizacpqikzfpuumpshvldcj
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A pewnbivngpcbnzliewinbbznodqpqiw
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A wrpjlpjebuxklgeilnmwulr
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 7
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 3
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6778 requested: D 6
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A rlczzudntiyjpbnsif
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A ihpadrbcefjjjtmvksa
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: A qatbychwqkf
+disk failure, no count returned!
+#SYS_CALL:
+
+process #6777 requested: D 2
+disk failure, no count returned!
