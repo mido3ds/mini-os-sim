@@ -59,13 +59,16 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			if (msg_op == "A")
 			{	
 				// add operation
-				int k = 0;
-				while (disk_messages[k] != "empty" && k<= MAX_Count)
+				if (msg_count < MAX_Count)
+				{
+					// add on the first empty slot
+					int k = 0;
+					while (disk_messages[k] != "empty" && k<= MAX_Count)
+						k++;
 					k++;
-				k++;
-				// add on the first empty slot
-				disk_messages[k] = message;
-				msg_count++;
+					disk_messages[k] = message;
+					msg_count++;
+				}
 				// sleep for 3 seconds 
 				for (int i=0; i<1000; i++)
 					usleep(1000);
