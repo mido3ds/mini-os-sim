@@ -1,81 +1,104 @@
-#SYS_CALL:
-process #16798 requested: A dalozvcrwnrovraglcclgbnybknsoa
+#SYS_CALL_CLK6:
+process #25719 requested: A vi
 disk failure, no count returned!
 
-#SYS_CALL:
-process #16798 requested: A yvfqfcrrygfhrylwtajc
+#SYS_CALL_CLK7:
+process #25720 requested: A dalozvcrwnrovraglcclgbnybknsoa
 10 slots available!
 request sent to disk
 added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: D 5
+#SYS_CALL_CLK9:
+process #25720 requested: A yvfqfcrrygfhrylwtajc
 10 slots available!
-error occured, no slots to delete!
-
-#SYS_CALL:
-process #16798 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
-9 slots available!
 request sent to disk
 added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A itqtndcb
+#SYS_CALL_CLK13:
+process #25720 requested: D 5
 9 slots available!
 request sent to disk
-added successfully, process freed
+deleted successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: D 9
+#SYS_CALL_CLK21:
+process #25720 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
 8 slots available!
 request sent to disk
+added successfully, process freed
+
+#SYS_CALL_CLK25:
+process #25720 requested: A itqtndcb
+8 slots available!
+request sent to disk
+added successfully, process freed
+
+#SYS_CALL_CLK27:
+process #25720 requested: D 9
+7 slots available!
+request sent to disk
 deleted successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A wazjcntrc
-7 slots available!
-request sent to disk
-added successfully, process freed
-
-#SYS_CALL:
-process #16798 requested: A yjiqjjxxmzzeqiupjbgvwc
-7 slots available!
-request sent to disk
-added successfully, process freed
-
-#SYS_CALL:
-process #16798 requested: D 5
+#SYS_CALL_CLK29:
+process #25720 requested: A wazjcntrc
 6 slots available!
 request sent to disk
-deleted successfully, process freed
+added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
-5 slots available!
+#SYS_CALL_CLK31:
+process #25720 requested: A yjiqjjxxmzzeqiupjbgvwc
+6 slots available!
 request sent to disk
 added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: D 5
+#SYS_CALL_CLK45:
+process #25720 requested: D 5
 5 slots available!
 request sent to disk
 deleted successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
+#SYS_CALL_CLK46:
+process #25719 requested: A qbihokseyqgcuukmgttqtfkvxxwyxvqhsr
 4 slots available!
 request sent to disk
 added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A sjdptztsxgbyclqdcts
+#SYS_CALL_CLK47:
+process #25720 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
 4 slots available!
 request sent to disk
 added successfully, process freed
 
-#SYS_CALL:
-process #16798 requested: A ivmbqokislklrxawzbvcpudhbrww
+#SYS_CALL_CLK57:
+process #25720 requested: D 5
 3 slots available!
 request sent to disk
+deleted successfully, process freed
+
+#SYS_CALL_CLK58:
+process #25719 requested: A ouduhbbuqjbccgnrmhcwqxo
+2 slots available!
+request sent to disk
 added successfully, process freed
+
+#SYS_CALL_CLK59:
+process #25720 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
+2 slots available!
+request sent to disk
+added successfully, process freed
+
+#SYS_CALL_CLK73:
+process #25720 requested: A sjdptztsxgbyclqdcts
+1 slots available!
+request sent to disk
+added successfully, process freed
+
+#SYS_CALL_CLK81:
+process #25720 requested: A ivmbqokislklrxawzbvcpudhbrww
+0 slots available!
+error occured, no free slots!
+
+#SYS_CALL_CLK82:
+process #25719 requested: D 6
+-1 slots available!
+disk failure, no count returned!
 

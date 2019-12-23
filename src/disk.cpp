@@ -67,8 +67,8 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 				disk_messages[k] = message;
 				msg_count++;
 				// sleep for 3 seconds 
-				for (int i = 0; i < 3e3; i++)
-					usleep(1);
+				for (int i=0; i<1000; i++)
+					usleep(1000);
 			}
 			else 
 			{
@@ -78,9 +78,9 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 					disk_messages[stoi(message)] = "empty";
 					msg_count--;
 				}
-				// sleep for 1 second1
-				for (int i = 0; i < 1e3; i++)
-					usleep(1);
+				// sleep for 1 second
+				for (int i=0; i<1000; i++)
+					usleep(1000);
 			}
 		}
 	}

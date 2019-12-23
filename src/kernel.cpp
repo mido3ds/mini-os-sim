@@ -54,7 +54,7 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         if (cur_proc.second.recv(proc_msg, proc_msg_type)) // check whether current process have a request in message queue
         {
             // log print process request
-            event_log << "#SYS_CALL:" << endl;
+            event_log << "#SYS_CALL_CLK" << KERNEL_CLK << ":" << endl;
             event_log << "process #" << cur_proc.first << " requested: " << proc_msg << endl;
             // get number of free slots in disk
             int free_slots = -1;
@@ -65,7 +65,7 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
                 free_slots = stoi(disk_msg);
             }
 
-            if (free_slots == -1) // in case of disk failure
+            if (free_slots < 0) // in case of disk failure
             {
                 event_log << "disk failure, no count returned!" << endl;
             }
@@ -119,9 +119,9 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         }
         // increment kernel clock
         KERNEL_CLK++;
-        // sleep for 1 second1
-        for (int i = 0; i < 1e3; i++)
-            usleep(1);
+        // sleep for 1 second
+        for (int i=0; i<1000; i++)
+            usleep(1000);
     }
     
     event_log.close();
