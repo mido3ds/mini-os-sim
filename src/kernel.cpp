@@ -8,7 +8,6 @@
 using namespace std;
 
 #include <iostream>
-#include <chrono>
 
 /* Definiton for SIGCHLD handler */
 void sigchld_handler(int signum) {
@@ -34,8 +33,7 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
     sleep(3); 
 
     // initialize some variables
-    //long long int KERNEL_CLK = 0;
-    //chrono::time_point<chrono::system_clock> start = chrono::system_clock::now(); 
+    long long int KERNEL_CLK = 0;
     string proc_msg;
     long proc_msg_type = 0;
     string disk_msg;
@@ -57,7 +55,6 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         {
             // log print process request
             event_log << "#SYS_CALL:" << endl;
-            event_log << endl;
             event_log << "process #" << cur_proc.first << " requested: " << proc_msg << endl;
             // get number of free slots in disk
             int free_slots = -1;
@@ -105,6 +102,8 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
                     event_log << "invalid request, process freed" << endl;
                 }
             }
+            // add a blank line
+            event_log << endl;
         }
 
         // check if process still exists
@@ -112,18 +111,23 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
         {
             procs.insert(procs.begin(), cur_proc);
         }
+        // send SIGUSR2 to all processes to increment clock
         kill(diskPID, SIGUSR2);
         for (auto &proc: procs)
         {
             kill(proc.first, SIGUSR2);
         }
-        sleep(1);
+        // increment kernel clock
+        KERNEL_CLK++;
+        // sleep for 1 second1
+        for (int i = 0; i < 1e3; i++)
+            usleep(1);
     }
     
     event_log.close();
 
     kill(diskPID, SIGKILL); // kill disk process
-    pause(); // wait for disk SIGCHLD
+    sleep(10); // wait for disk SIGCHLD
 
     return 0;
 }

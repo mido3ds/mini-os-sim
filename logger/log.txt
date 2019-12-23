@@ -1,78 +1,81 @@
 #SYS_CALL:
-
-process #9138 requested: A dalozvcrwnrovraglcclgbnybknsoa
+process #16798 requested: A dalozvcrwnrovraglcclgbnybknsoa
 disk failure, no count returned!
-#SYS_CALL:
 
-process #9138 requested: A yvfqfcrrygfhrylwtajc
+#SYS_CALL:
+process #16798 requested: A yvfqfcrrygfhrylwtajc
 10 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: D 5
+#SYS_CALL:
+process #16798 requested: D 5
 10 slots available!
 error occured, no slots to delete!
-#SYS_CALL:
 
-process #9138 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A fuyuoswilzvneruxpjluyhpxykkaeimzqbkhqmug
+9 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: A itqtndcb
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A itqtndcb
+9 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: D 9
-10 slots available!
-error occured, no slots to delete!
 #SYS_CALL:
+process #16798 requested: D 9
+8 slots available!
+request sent to disk
+deleted successfully, process freed
 
-process #9138 requested: A wazjcntrc
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A wazjcntrc
+7 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: A yjiqjjxxmzzeqiupjbgvwc
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A yjiqjjxxmzzeqiupjbgvwc
+7 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: D 5
-10 slots available!
-error occured, no slots to delete!
 #SYS_CALL:
+process #16798 requested: D 5
+6 slots available!
+request sent to disk
+deleted successfully, process freed
 
-process #9138 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A oqbgiqgeuadvhqjcrnltuvkbihx
+5 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: D 5
-10 slots available!
-error occured, no slots to delete!
 #SYS_CALL:
+process #16798 requested: D 5
+5 slots available!
+request sent to disk
+deleted successfully, process freed
 
-process #9138 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A akgibbrkxaqrgfgnjfbldyjwwioncdgckxjl
+4 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: A sjdptztsxgbyclqdcts
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A sjdptztsxgbyclqdcts
+4 slots available!
 request sent to disk
 added successfully, process freed
-#SYS_CALL:
 
-process #9138 requested: A ivmbqokislklrxawzbvcpudhbrww
-10 slots available!
+#SYS_CALL:
+process #16798 requested: A ivmbqokislklrxawzbvcpudhbrww
+3 slots available!
 request sent to disk
 added successfully, process freed
+

@@ -59,8 +59,6 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			if (msg_op == "A")
 			{	
 				// add operation
-				for (int i = 0; i < 3e6; i++)
-					usleep(1);
 				int k = 0;
 				while (disk_messages[k] != "empty" && k<= MAX_Count)
 					k++;
@@ -68,17 +66,21 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 				// add on the first empty slot
 				disk_messages[k] = message;
 				msg_count++;
+				// sleep for 3 seconds 
+				for (int i = 0; i < 3e3; i++)
+					usleep(1);
 			}
 			else 
 			{
 				// delete operation
-				for (int i = 0; i < 1e6; i++)
-					usleep(1);
 				if (disk_messages[stoi(message)] != "empty")
 				{
 					disk_messages[stoi(message)] = "empty";
 					msg_count--;
 				}
+				// sleep for 1 second1
+				for (int i = 0; i < 1e3; i++)
+					usleep(1);
 			}
 		}
 	}
