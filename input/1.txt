@@ -1,5 +1,12 @@
-45 ADD qbihokseyqgcuukmgttqtfkvxxwyxvqhsr
-84 ADD apvmychhusqomxdjsaeudskeyclj
-5 ADD vi
-81 DEL 6
-57 ADD ouduhbbuqjbccgnrmhcwqxo
+63 DEL 7
+1 DEL 8
+67 DEL 1
+83 ADD qtzsedtlhugtzqrzixf
+70 ADD abjjuitkp
+19 DEL 7
+47 DEL 2
+66 DEL 6
+56 ADD hltyjmjzwmarcgwuyhipywbcewgp
+4 ADD tfqjnhsppncxholxqagprqssnvfpbdqnrryifqdi
+29 ADD yjjxiblahdzxjnzzgnpalthprbhkbfbseqhjsrj
+48 DEL 3

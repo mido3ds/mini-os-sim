@@ -17,7 +17,7 @@ vector<string> disk_messages {"empty", "empty", "empty", "empty", "empty", "empt
 /* Definiton for Disk SIGUSR1 */
 void sigusr1_disk_handler(int signum)
 {
-	long msg_type = 5; // message type 4 for Disk->Kernel 
+	long msg_type = 5; // message type 5 for Disk->Kernel 
 	// send the Kernel a message with disk Count
 	if (ch->send(to_string(10-msg_count), msg_type) == -1)
 		cout << "Error in upstreaming the number of messages in Disk!" << endl;
@@ -70,7 +70,7 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 					msg_count++;
 				}
 				// sleep for 3 seconds 
-				for (int i=0; i<1000; i++)
+				for (int i=0; i<3000; i++)
 					usleep(1000);
 			}
 			else 
