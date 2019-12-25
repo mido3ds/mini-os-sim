@@ -79,11 +79,11 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
             }
             else // send request to disk, if valid
             {
-                event_log << "request sent to disk" << endl;
+                event_log << "sending request to disk ..." << endl;
                 if (proc_msg[0] == 'A') // add request
                 {
                     diskChannel.send(proc_msg, 4);
-                    event_log << "added successfully, process freed" << endl;
+                    event_log << "add request sent to disk, to be added" << endl;
                 }
                 else if (proc_msg[0] == 'D') // delete request
                 {
@@ -94,7 +94,7 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
                     else
                     {
                         diskChannel.send(proc_msg, 3);
-                        event_log << "deleted successfully, process freed" << endl;
+                        event_log << "delete request sent to disk, to be deleted" << endl;
                     }               
                 } 
                 else // unknown request

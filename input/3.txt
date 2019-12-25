@@ -1,0 +1,12 @@
+3 DEL 2
+14 ADD mmalualpklyupijdogebamniwlkm
+5 DEL 4
+77 DEL 2
+12 DEL 7
+59 DEL 9
+11 DEL 10
+7 DEL 1
+5 DEL 1
+13 DEL 10
+52 DEL 9
+55 DEL 10
