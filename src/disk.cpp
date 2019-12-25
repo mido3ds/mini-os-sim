@@ -12,7 +12,7 @@ long long int DISK_CLK = 0;
 int msg_count = 0;
 const int MAX_Count = 10;
 Channel *ch;
-vector<string> disk_messages {"empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"};
+vector<string> disk_messages {"", "", "", "", "", "", "", "", "", ""};
 
 /* Definiton for Disk SIGUSR1 */
 void sigusr1_disk_handler(int signum)
@@ -20,7 +20,7 @@ void sigusr1_disk_handler(int signum)
 	long msg_type = 5; // message type 4 for Disk->Kernel 
 	// send the Kernel a message with disk Count
 	if (ch->send(to_string(10-msg_count), msg_type) == -1)
-		cout << "Error in upstreaming the number of messages in Disk!" << endl;
+		cout << "Error in upstreaming the number of messages in Disk to the Kernel!" << endl;
 	signal(SIGUSR1, sigusr1_disk_handler);
 }
 
@@ -63,22 +63,21 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 				{
 					// add on the first empty slot
 					int k = 0;
-					while (disk_messages[k] != "empty" && k<= MAX_Count)
+					while (disk_messages[k] != "" && k<= MAX_Count)
 						k++;
-					k++;
 					disk_messages[k] = message;
 					msg_count++;
 				}
 				// sleep for 3 seconds 
-				for (int i=0; i<1000; i++)
+				for (int i=0; i<3000; i++)
 					usleep(1000);
 			}
 			else 
 			{
 				// delete operation
-				if (disk_messages[stoi(message)] != "empty")
+				if (disk_messages[stoi(message)] != "")
 				{
-					disk_messages[stoi(message)] = "empty";
+					disk_messages[stoi(message)] = "";
 					msg_count--;
 				}
 				// sleep for 1 second
