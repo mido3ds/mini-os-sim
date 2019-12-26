@@ -20,7 +20,7 @@ void sigusr1_disk_handler(int signum)
 	long msg_type = 5; // message type 5 for Disk->Kernel 
 	// send the Kernel a message with disk Count
 	if (ch->send(to_string(10-msg_count), msg_type) == -1)
-		cout << "Error in upstreaming the number of messages in Disk!" << endl;
+		cout << "Error in upstreaming the number of messages in Disk to the Kernel!" << endl;
 	signal(SIGUSR1, sigusr1_disk_handler);
 }
 
