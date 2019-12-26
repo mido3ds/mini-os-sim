@@ -49,7 +49,7 @@ int init(int n, string inputDir) {
             int exitCode = process_main(getppid(), n-1, chnl, getInputTextPath(inputDir, n-1));
             chnl.close();
 
-            cerr << RED_CLR ">> " RESET_CLR << "Process #" << n-1 << " returned " << exitCode << endl;
+            //cerr << RED_CLR ">> " RESET_CLR << "Process #" << n-1 << " returned " << exitCode << endl;
             return exitCode;
         }
         
@@ -71,7 +71,7 @@ int init(int n, string inputDir) {
             int exitCode = disk_main(getppid(), chnl);
             chnl.close();
 
-            cerr << RED_CLR ">> " RESET_CLR << "Disk returned " << exitCode << endl;
+            //cerr << RED_CLR ">> " RESET_CLR << "Disk returned " << exitCode << endl;
             return exitCode;
         }
 
@@ -84,7 +84,7 @@ int init(int n, string inputDir) {
             proc.second.close();
         }
 
-        cerr << RED_CLR ">> " RESET_CLR << "Kernel returned " << exitCode << endl; 
+        //cerr << RED_CLR ">> " RESET_CLR << "Kernel returned " << exitCode << endl; 
         return exitCode;
     }
 

@@ -29,8 +29,14 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
     // set SIGCHLD handler of kernel
     signal(SIGCHLD, sigchld_handler);
 
-    // wait for all processes and disk to startup
+    // wait for all processes and disk to startup and perform handshake
     sleep(3); 
+    kill(diskPID, SIGUSR1);
+    kill(diskPID, SIGUSR2);
+    for (auto &proc: procs)
+    {
+        kill(proc.first, SIGUSR2);
+    }
 
     // initialize some variables
     long long int KERNEL_CLK = 0;
@@ -126,8 +132,8 @@ int kernel_main(pid_t diskPID, Channel diskChannel, vector<pair<pid_t, Channel>>
     
     event_log.close();
 
-    kill(diskPID, SIGKILL); // kill disk process
-    sleep(10); // wait for disk SIGCHLD
+    diskChannel.send("terminate", 6); // send a terminate message to disk
+    sleep(5); // wait for disk SIGCHLD
 
     return 0;
 }

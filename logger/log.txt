@@ -1,186 +1,200 @@
-#SYS_CALL_CLK1:
-process #22704 requested: D 8
-disk failure, no count returned!
+#SYS_CALL_CLK3:
+process #10312 requested: D 8
+10 slots available!
+error occured, no slots to delete!
 
-#SYS_CALL_CLK4:
-process #22704 requested: A tfqjnhsppncxholxqagprqssnvfpbdqnrryifqdi
+#SYS_CALL_CLK6:
+process #10310 requested: D 2
+10 slots available!
+error occured, no slots to delete!
+
+#SYS_CALL_CLK8:
+process #10312 requested: A tfqjnhsppncxholxqagprqssnvfpbdqnrryifqdi
 10 slots available!
 sending request to disk ...
 add request sent to disk, to be added
+
+#SYS_CALL_CLK11:
+process #10310 requested: D 4
+10 slots available!
+error occured, no slots to delete!
 
 #SYS_CALL_CLK12:
-process #22703 requested: A njfpteatbrwjfozcsaztdslhcgkbiwpbmgcppea
-10 slots available!
-sending request to disk ...
-add request sent to disk, to be added
-
-#SYS_CALL_CLK14:
-process #22705 requested: A hgudoiocirmkwemfhhtlpyxldyysbgyl
+process #10311 requested: A njfpteatbrwjfozcsaztdslhcgkbiwpbmgcppea
 9 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
-#SYS_CALL_CLK15:
-process #22703 requested: D 7
-8 slots available!
+#SYS_CALL_CLK14:
+process #10313 requested: A hgudoiocirmkwemfhhtlpyxldyysbgyl
+9 slots available!
 sending request to disk ...
-delete request sent to disk, to be deleted
+add request sent to disk, to be added
 
-#SYS_CALL_CLK17:
-process #22705 requested: A wushjfedshcuoowvpiwtp
+#SYS_CALL_CLK16:
+process #10310 requested: A mmalualpklyupijdogebamniwlkm
 8 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
 #SYS_CALL_CLK19:
-process #22704 requested: D 7
+process #10313 requested: A wushjfedshcuoowvpiwtp
 7 slots available!
 sending request to disk ...
-delete request sent to disk, to be deleted
+add request sent to disk, to be added
 
-#SYS_CALL_CLK21:
-process #22703 requested: D 5
-7 slots available!
+#SYS_CALL_CLK20:
+process #10309 requested: A wushjfedshcuoowvpiwtp
+6 slots available!
 sending request to disk ...
-delete request sent to disk, to be deleted
+add request sent to disk, to be added
+
+#SYS_CALL_CLK22:
+process #10311 requested: A tn
+6 slots available!
+sending request to disk ...
+add request sent to disk, to be added
 
 #SYS_CALL_CLK23:
-process #22705 requested: A ipotvtsrfwpoaygeauuvaqmnbscryerbydnnrzoq
-6 slots available!
+process #10312 requested: D 7
+5 slots available!
 sending request to disk ...
-add request sent to disk, to be added
+delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK24:
-process #22703 requested: A tn
-6 slots available!
-sending request to disk ...
-add request sent to disk, to be added
-
-#SYS_CALL_CLK27:
-process #22703 requested: A xfwndmujrrajoaoyy
-6 slots available!
-sending request to disk ...
-add request sent to disk, to be added
-
-#SYS_CALL_CLK29:
-process #22705 requested: A rfztrrkyonspkmihapppdhpanyqlck
+process #10313 requested: A ipotvtsrfwpoaygeauuvaqmnbscryerbydnnrzoq
 5 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
-#SYS_CALL_CLK30:
-process #22703 requested: A dmzszq
+#SYS_CALL_CLK27:
+process #10311 requested: A xfwndmujrrajoaoyy
+5 slots available!
+sending request to disk ...
+add request sent to disk, to be added
+
+#SYS_CALL_CLK29:
+process #10313 requested: A rfztrrkyonspkmihapppdhpanyqlck
 4 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
-#SYS_CALL_CLK31:
-process #22704 requested: A yjjxiblahdzxjnzzgnpalthprbhkbfbseqhjsrj
-4 slots available!
+#SYS_CALL_CLK33:
+process #10312 requested: A yjjxiblahdzxjnzzgnpalthprbhkbfbseqhjsrj
+3 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
-#SYS_CALL_CLK32:
-process #22705 requested: D 7
-3 slots available!
+#SYS_CALL_CLK34:
+process #10313 requested: D 7
+2 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
-#SYS_CALL_CLK35:
-process #22705 requested: D 5
-3 slots available!
-sending request to disk ...
-delete request sent to disk, to be deleted
-
-#SYS_CALL_CLK36:
-process #22703 requested: A mcxozpsrjlbtpcqrytufifhcmlkiham
+#SYS_CALL_CLK37:
+process #10311 requested: A mcxozpsrjlbtpcqrytufifhcmlkiham
 2 slots available!
 sending request to disk ...
 add request sent to disk, to be added
 
-#SYS_CALL_CLK41:
-process #22705 requested: A xjcfr
-2 slots available!
+#SYS_CALL_CLK39:
+process #10313 requested: D 5
+1 slots available!
 sending request to disk ...
-add request sent to disk, to be added
+delete request sent to disk, to be deleted
+
+#SYS_CALL_CLK40:
+process #10309 requested: D 2
+0 slots available!
+sending request to disk ...
+delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK44:
-process #22705 requested: A hovcwgkpdajxfilceyiybwzijgqc
+process #10313 requested: A xjcfr
 0 slots available!
 error occured, no free slots!
 
 #SYS_CALL_CLK47:
-process #22705 requested: D 9
-0 slots available!
+process #10311 requested: A cdxsbnbnqykeqwxjfshnrlavynfrun
+1 slots available!
 sending request to disk ...
-delete request sent to disk, to be deleted
+add request sent to disk, to be added
 
 #SYS_CALL_CLK48:
-process #22703 requested: A cdxsbnbnqykeqwxjfshnrlavynfrun
+process #10312 requested: D 2
 0 slots available!
-error occured, no free slots!
+sending request to disk ...
+delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK49:
-process #22704 requested: D 2
-0 slots available!
+process #10313 requested: A hovcwgkpdajxfilceyiybwzijgqc
+1 slots available!
 sending request to disk ...
-delete request sent to disk, to be deleted
+add request sent to disk, to be added
 
-#SYS_CALL_CLK50:
-process #22705 requested: D 0
-0 slots available!
-sending request to disk ...
-delete request sent to disk, to be deleted
-
-#SYS_CALL_CLK52:
-process #22704 requested: D 3
-0 slots available!
+#SYS_CALL_CLK53:
+process #10312 requested: D 3
+2 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK54:
-process #22703 requested: D 4
-0 slots available!
+process #10313 requested: D 9
+2 slots available!
+sending request to disk ...
+delete request sent to disk, to be deleted
+
+#SYS_CALL_CLK57:
+process #10311 requested: D 4
+1 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK58:
-process #22704 requested: A hltyjmjzwmarcgwuyhipywbcewgp
-0 slots available!
-error occured, no free slots!
+process #10312 requested: A hltyjmjzwmarcgwuyhipywbcewgp
+2 slots available!
+sending request to disk ...
+add request sent to disk, to be added
 
-#SYS_CALL_CLK64:
-process #22704 requested: D 7
-0 slots available!
+#SYS_CALL_CLK59:
+process #10313 requested: D 0
+3 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
-#SYS_CALL_CLK66:
-process #22703 requested: D 2
-0 slots available!
+#SYS_CALL_CLK63:
+process #10312 requested: D 7
+4 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK67:
-process #22704 requested: D 6
-0 slots available!
+process #10311 requested: D 2
+4 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
-#SYS_CALL_CLK70:
-process #22704 requested: D 1
-0 slots available!
+#SYS_CALL_CLK68:
+process #10312 requested: D 6
+5 slots available!
+sending request to disk ...
+delete request sent to disk, to be deleted
+
+#SYS_CALL_CLK72:
+process #10312 requested: D 1
+6 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
 
 #SYS_CALL_CLK73:
-process #22704 requested: A abjjuitkp
-0 slots available!
-error occured, no free slots!
-
-#SYS_CALL_CLK74:
-process #22705 requested: D 10
-1 slots available!
+process #10313 requested: D 10
+7 slots available!
 sending request to disk ...
 delete request sent to disk, to be deleted
+
+#SYS_CALL_CLK75:
+process #10312 requested: A abjjuitkp
+8 slots available!
+sending request to disk ...
+add request sent to disk, to be added
 

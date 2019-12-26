@@ -12,7 +12,7 @@ long long int DISK_CLK = 0;
 int msg_count = 0;
 const int MAX_Count = 10;
 Channel *ch;
-vector<string> disk_messages {"empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"};
+vector<string> disk_messages {"", "", "", "", "", "", "", "", "", ""};
 
 /* Definiton for Disk SIGUSR1 */
 void sigusr1_disk_handler(int signum)
@@ -52,6 +52,11 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 		// check the queue for new messages
 		if (ch->recv(message, msg_type))
 		{
+			// check if a terminate message is sent
+			if (message == "terminate")
+			{
+				break;
+			}
 			// get message content
 			string msg_op =  message.substr(0,1);
 			message = message.substr(2);
@@ -63,9 +68,8 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 				{
 					// add on the first empty slot
 					int k = 0;
-					while (disk_messages[k] != "empty" && k<= MAX_Count)
+					while (disk_messages[k] != "" && k<= MAX_Count)
 						k++;
-					k++;
 					disk_messages[k] = message;
 					msg_count++;
 				}
@@ -76,9 +80,9 @@ int disk_main(pid_t kernelPID, Channel kernelChannel) {
 			else 
 			{
 				// delete operation
-				if (disk_messages[stoi(message)] != "empty")
+				if (disk_messages[stoi(message)] != "")
 				{
-					disk_messages[stoi(message)] = "empty";
+					disk_messages[stoi(message)] = "";
 					msg_count--;
 				}
 				// sleep for 1 second
